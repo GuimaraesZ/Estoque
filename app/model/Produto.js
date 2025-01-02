@@ -1,35 +1,29 @@
 class Produto {
-    constructor(nome, quantidade, valor, cor) {
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.valor = valor;
+    constructor(marca, modelo, placa, cor) {
+        this.nome = marca;
+        this.quantidade = modelo;
+        this.placa = placa
         this.cor = cor;
     }
-
     getNome() {
-        return this.nome;
+        return this.marca;
     }
-
     getQuantidade() {
-        return this.quantidade;
+        return this.modelo;
     }
-
-    getValor() {
-        return this.valor;    
+    getCor() {
+        return this.placa;
     }
     getCor() {
         return this.cor;
     }
     descricao(){
-        return `Seu carro é: "${this.nome}\n
-        O valor é: R$${this.valor}\n 
-        A quantidade é: ${this.quantidade}\n 
-        A cor é:${this.cor}`;      
+        return `Seu carro é: "${this.marca}\n
+        O Modelo é: ${this.modelo}\n 
+        A placa do carro é: ${this.placa};
+        A cor é: ${this.cor}`;      
     }
 
-    formataValor(valor){  
-        return "R$ " + valor;
-    }
 }
 
 module.exports = Produto;
