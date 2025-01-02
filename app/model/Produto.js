@@ -1,7 +1,7 @@
 class Produto {
     constructor(marca, modelo, placa, cor) {
-        this.nome = marca;
-        this.quantidade = modelo;
+        this.marca = marca;
+        this.modelo = modelo;
         this.placa = placa
         this.cor = cor;
     }
@@ -17,13 +17,9 @@ class Produto {
     getCor() {
         return this.cor;
     }
-    descricao(){
-        return `Seu carro é: "${this.marca}\n
-        O Modelo é: ${this.modelo}\n 
-        A placa do carro é: ${this.placa};
-        A cor é: ${this.cor}`;      
+    descricao() {
+        return `Marca: ${this.marca}, Modelo: ${this.modelo}, Placa: ${this.placa}, Cor: ${this.cor}`;
+      }
     }
-
-}
-
-module.exports = Produto;
+    
+    module.exports = Produto;
