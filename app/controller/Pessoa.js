@@ -11,7 +11,7 @@ function perguntarMarca() {
     marca = marca.charAt(0).toUpperCase() + marca.slice(1).toLowerCase();
     // Perguntar o modelo do carro após a marca
     perguntarModelo(marca);
-  });
+  }); //aaaa
 }
 
 function perguntarModelo(marca) {
