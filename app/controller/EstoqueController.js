@@ -1,11 +1,14 @@
-const Produto = require("../model/Produto");
- 
-const novoProduto =  new Produto("Nissin Miojo", 15, 4);
+// controllers/EstoqueController.js
+const PessoaController = require("./PessoaController");
 
- console.log(novoProduto.getNome());
- 
+class EstoqueController {
+  iniciar() {
+    // Cria uma instância do PessoaController
+    const pessoaController = new PessoaController();
+    
+    // Inicia o fluxo de perguntas
+    pessoaController.perguntarNome();
+  }
+}
 
-
-"asd"
-
-
+module.exports = EstoqueController;
