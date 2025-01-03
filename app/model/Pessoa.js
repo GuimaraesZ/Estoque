@@ -32,6 +32,16 @@ class Pessoa {
 
   }
 
+  verificaIdade() {
+    if (this.idade < 18) {
+      return "Menor de idade";
+    } else if (this.idade >= 18 && this.idade <= 60) {
+      return "Adulto";
+    } else {
+      return "Idoso";
+    }
+  }
+
 }
 
 
