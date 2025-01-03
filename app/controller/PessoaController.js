@@ -110,7 +110,8 @@ class PessoaController {
 
   // Função para continuar o fluxo e criar a pessoa
   continuar() {
-    const pessoa = new Pessoa(nome, idade, genero, cidade, funcao);  // Cria a Pessoa com todos os dados coletados pelo usuário
+    const pessoa = new Pessoa(nome, idade, genero, cidade, funcao);
+      // Cria a Pessoa com todos os dados coletados pelo usuário
     console.log(pessoa.descricao());  // Imprime a descrição
     this.duvida.close();
   }

@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Pessoa {
+  id        Int      @id @default(autoincrement())
+  nome      String @default("Nao informado")
+  idade     Int   @default(0)
+  genero    String @default("Nao informado")
+  cidade    String @default("Nao informado")
+  funcao    String @default("Nao informado")
+  createdAt DateTime @default(now())
+}
