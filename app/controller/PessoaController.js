@@ -13,58 +13,46 @@ class PessoaController {
     this.duvida.question("Qual é o seu nome? ", (nome) => {
       // Formatar o nome para que a primeira letra seja maiúscula
       nome = nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
-
-      // Perguntar a idade após o nome
-      this.perguntarIdade(nome);
     });
   }
 
   // Função para perguntar a idade
-  perguntarIdade(nome) {
+  perguntarIdade() {
     this.duvida.question("Quantos anos você tem? ", (idade) => {
       idade = parseInt(idade);  // A idade é convertida de string para número com parseInt(), e caso não seja um número válido.
       if (isNaN(idade)) { // Caso não seja um número válido, é tratado com isNaN() e o código repete a pergunta até a idade ser válida.
         console.log("Por favor, insira uma idade válida.");
-        this.perguntarIdade(nome);  // Repete a pergunta se a idade for inválida
-      } else {
-        // Se a idade for válida, chama a função de perguntar o gênero
-        this.perguntarGenero(nome, idade);
+        this.perguntarIdade();  // Repete a pergunta se a idade for inválida
       }
     });
   }
 
   // Função para perguntar o gênero
-  perguntarGenero(nome, idade) {
+  perguntarGenero() {
     this.duvida.question("Seu gênero é Masculino ou Feminino? ", (genero) => {
       // Verifica se o gênero é válido
       if (genero === "Masculino" || genero === "masculino") {
         console.log("Gênero:", "Masculino");
-        // Perguntar cidade após o gênero
-        this.perguntarCidade(nome, idade, "Masculino");  // Passa nome, idade e gênero para a próxima função
       } else if (genero === "Feminino" || genero === "feminino") {
         console.log("Gênero:", "Feminino");
-        // Perguntar cidade após o gênero
-        this.perguntarCidade(nome, idade, "Feminino");  // Passa nome, idade e gênero para a próxima função
       } else {
         console.log("Erro: Gênero inválido. Por favor, digite 'Masculino' ou 'Feminino'.");
-        this.perguntarGenero(nome, idade);  // Repete a pergunta até o gênero ser válido
+        this.perguntarGenero();  // Repete a pergunta até o gênero ser válido
       }
     });
   }
 
   // Função para perguntar a cidade
-  perguntarCidade(nome, idade, genero) {
+  perguntarCidade() {
     this.duvida.question("Onde você mora? ", (cidade) => {
       // Formatar o nome da cidade para que a primeira letra seja maiúscula
       cidade = cidade.charAt(0).toUpperCase() + cidade.slice(1).toLowerCase();
 
-      // Perguntar profissão após a cidade
-      this.perguntarProfissao(nome, idade, genero, cidade);  // Passa nome, idade, gênero e cidade para a próxima função
     });
   }
 
   // Função para perguntar a profissão
-  perguntarProfissao(nome, idade, genero, cidade) {
+  perguntarProfissao() {
     console.log("\nEscolha a sua profissão:");
     console.log("1 - Desenvolvedor Jr");
     console.log("2 - Desenvolvedor Pleno");
@@ -113,15 +101,15 @@ class PessoaController {
           break;
         default:
           console.log("Opção inválida. Por favor, selecione um número entre 1 e 10.");
-          return this.perguntarProfissao(nome, idade, genero, cidade);  // Repete a pergunta caso seja uma entrada inválida
+          return this.perguntarProfissao();  // Repete a pergunta caso seja uma entrada inválida
       }
       // Chama a função continuar com a profissão selecionada
-      this.continuar(nome, idade, genero, cidade, profissao);
+      this.continuar();
     });
   }
 
   // Função para continuar o fluxo e criar a pessoa
-  continuar(nome, idade, genero, cidade, funcao) {
+  continuar() {
     const pessoa = new Pessoa(nome, idade, genero, cidade, funcao);  // Cria a Pessoa com todos os dados coletados pelo usuário
     console.log(pessoa.descricao());  // Imprime a descrição
     this.duvida.close();
