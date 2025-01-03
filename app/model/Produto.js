@@ -18,5 +18,6 @@ class Produto{
         return this.valor;
     }
 
-    module.exports = Produto;
-}
+    
+} 
+module.exports = Produto;
